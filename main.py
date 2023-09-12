@@ -15,9 +15,15 @@ fake_users = [
 ]
 
 
+class User(BaseModel):
+    id: int
+    role: str
+    name: str
+
+
 # получение пользователя по id
-@app.get("/users/{user_id}")
-def get_user(user_id):
+@app.get("/users/{user_id}", response_model=List[User])
+def get_user(user_id: int):
     return [user for user in fake_users if user.get("id") == user_id]
 
 
