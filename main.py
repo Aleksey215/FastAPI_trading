@@ -1,6 +1,10 @@
-from fastapi import FastAPI  # Основной класс для создания приложения
-from typing import List  # Доболнительный тип данных (список)
-from pydantic import BaseModel, Field  # Классы для работы с данными
+"""
+Main app file
+"""
+from typing import List
+
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 # Создание приложения
 app = FastAPI(
@@ -16,6 +20,11 @@ fake_users = [
 
 
 class User(BaseModel):
+    """User-model for validating data
+
+    Args:
+        BaseModel (pydentic): pydentic base model
+    """
     id: int
     role: str
     name: str
