@@ -39,6 +39,9 @@ uvicorn = "0.23.2"
 uvloop = "0.17.0"
 watchfiles = "0.20.0"
 websockets = "11.0.3"
+psycopg2-binary = "^2.9.9"
+sqlalchemy = "^2.0.30"
+alembic = "^1.13.1"
 
 
 [build-system]
