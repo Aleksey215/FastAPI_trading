@@ -10,20 +10,22 @@ from sqlalchemy import MetaData, Table, Column, \
 metadata = MetaData()
 
 roles = Table(
+    'role',
     metadata,
     Column("id", Integer, primary_key=True),
     Column("name", String, nullable=False),
     Column("permissions", JSON),
-    name='trading.role',
+    schema='trading'
 )
 
 users = Table(
+    'user',
     metadata,
     Column("id", Integer, primary_key=True),
     Column("email", String, nullable=False),
     Column("username", String, nullable=False),
     Column("password", String, nullable=False),
     Column("registred_at", TIMESTAMP, default=datetime.now(tz=timezone.utc)),
-    Column("role_id", Integer, ForeignKey("role.id")),
-    name='trading.user'
+    Column("role_id", Integer, ForeignKey("trading.role.id")),
+    schema='trading'
 )
