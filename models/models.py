@@ -9,7 +9,7 @@ from sqlalchemy import MetaData, Table, Column, \
 
 metadata = MetaData()
 
-roles = Table(
+role = Table(
     'role',
     metadata,
     Column("id", Integer, primary_key=True),
@@ -18,7 +18,7 @@ roles = Table(
     schema='trading'
 )
 
-users = Table(
+user = Table(
     'user',
     metadata,
     Column("id", Integer, primary_key=True),

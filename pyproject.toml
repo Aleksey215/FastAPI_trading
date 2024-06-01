@@ -42,6 +42,8 @@ websockets = "11.0.3"
 psycopg2-binary = "^2.9.9"
 sqlalchemy = "^2.0.30"
 alembic = "^1.13.1"
+fastapi-users-db-sqlalchemy = "^6.0.1"
+asyncpg = "^0.29.0"
 
 
 [build-system]
