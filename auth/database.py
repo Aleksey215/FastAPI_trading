@@ -37,14 +37,14 @@ class Base(DeclarativeBase):
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
-    id: Mapped[int] = mapped_column(Integer, primary_key=True),
-    username: Mapped[str] = mapped_column(String, nullable=False),
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    username: Mapped[str] = mapped_column(String, nullable=False)
     registred_at: Mapped[datetime] = mapped_column(
-        TIMESTAMP, default=datetime.now(tz=timezone.utc)
-    ),
+        TIMESTAMP(timezone=True), default=datetime.now(tz=timezone.utc)
+    )
     role_id: Mapped[int] = mapped_column(
         Integer, ForeignKey(role.c.id)
-    ),
+    )
     email: Mapped[str] = mapped_column(
         String(length=320), unique=True, index=True, nullable=False
     )
